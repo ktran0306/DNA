@@ -116,26 +116,27 @@ def get_codons(sequence):
     return tripletsPerfect
 
 
-# loop thru each pair of input lines
-i = 0
-while i < len(lines):
-    # loop thru dna sequence
-    sequence = lines[i + 1]
-    print("Region Name: " + lines[i] +
-          "Nucleotides: " + lines[i + 1] +
-          "Nuc. Counts: " + str(get_count(sequence)))
-    print("Total Mass%: " + get_percentages(get_count(sequence), get_Junk(sequence)))
-    print("Codons List: " + str(get_codons(sequence)))
-    if str(get_codons(sequence)[-1]) == 'TAA' and get_percentagesCG(get_count(sequence), get_Junk(
-            sequence)) >= valid_protein_mass_of_C_and_G:
-        print("Is Protein?: YES")
-    elif str(get_codons(sequence)[-1]) == 'TAG' and get_percentagesCG(get_count(sequence), get_Junk(
-            sequence)) >= valid_protein_mass_of_C_and_G:
-        print("Is Protein?: YES")
-    elif str(get_codons(sequence)[-1]) == 'TGA' and get_percentagesCG(get_count(sequence), get_Junk(
-            sequence)) >= valid_protein_mass_of_C_and_G:
-        print("Is Protein?: YES")
-    else:
-        print("Is Protein?: NO")
-    print()
-    i += 2
+if __name__ == '__main__':
+    # loop thru each pair of input lines
+    i = 0
+    while i < len(lines):
+        # loop thru dna sequence
+        sequence = lines[i + 1]
+        print("Region Name: " + lines[i] +
+              "Nucleotides: " + lines[i + 1] +
+              "Nuc. Counts: " + str(get_count(sequence)))
+        print("Total Mass%: " + get_percentages(get_count(sequence), get_Junk(sequence)))
+        print("Codons List: " + str(get_codons(sequence)))
+        if str(get_codons(sequence)[-1]) == 'TAA' and get_percentagesCG(get_count(sequence), get_Junk(
+                sequence)) >= valid_protein_mass_of_C_and_G:
+            print("Is Protein?: YES")
+        elif str(get_codons(sequence)[-1]) == 'TAG' and get_percentagesCG(get_count(sequence), get_Junk(
+                sequence)) >= valid_protein_mass_of_C_and_G:
+            print("Is Protein?: YES")
+        elif str(get_codons(sequence)[-1]) == 'TGA' and get_percentagesCG(get_count(sequence), get_Junk(
+                sequence)) >= valid_protein_mass_of_C_and_G:
+            print("Is Protein?: YES")
+        else:
+            print("Is Protein?: NO")
+        print()
+        i += 2
